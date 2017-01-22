@@ -53,9 +53,9 @@ public class BeatControl : MonoBehaviour
                 createPortal(timeStampsPortal[i]);
             }
 
-            for (int i = circleMark; i < timeStampsPortal.Length; i++)
+            for (int j = circleMark; j < timeStampsCircle.Length; j++)
             {
-                createCircle(timeStampsCircle[i]);
+                createCircle(timeStampsCircle[j]);
             }
         }
     }
