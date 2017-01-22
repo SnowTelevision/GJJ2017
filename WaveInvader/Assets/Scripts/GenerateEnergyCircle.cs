@@ -12,7 +12,7 @@ public class GenerateEnergyCircle : MonoBehaviour
 	// Use this for initialization
 	void Start ()
     {
-        StartCoroutine(autoSpawnCircle());
+        //StartCoroutine(autoSpawnCircle());
 	}
 	
 	// Update is called once per frame

@@ -21,6 +21,8 @@ public class PlayerController : MonoBehaviour
     public WaveGenerator Wave;
     public GameObject thirdCam;
     public Image damageEffect;
+    public Image healthBar;
+    public Image progressBar;
 
 	// Use this for initialization
 	void Start ()
@@ -76,6 +78,13 @@ public class PlayerController : MonoBehaviour
             isJump = false;
         }
 
+        if(playerHealth <= 0)
+        {
+            Debug.LogError("You Lose!");
+        }
+
+        healthBar.fillAmount = playerHealth / playerMaxHealth;
+
         //if(velocity.y != 0)
         //{
         //    print(velocity.y);
@@ -97,16 +106,26 @@ public class PlayerController : MonoBehaviour
 
     public void shoott()
     {
-        print("shoot" + thirdCam.transform.position + " " + thirdCam.transform.forward);
+        //print("shoot" + thirdCam.transform.position + " " + thirdCam.transform.forward);
 
         RaycastHit hit;
 
         if(Physics.Raycast(thirdCam.transform.position, thirdCam.transform.forward, out hit, Mathf.Infinity))
         {
-            print("You hit: " + hit.transform.name);
+            //print("You hit: " + hit.transform.name);
 
             if(hit.transform.tag == "Drone")
             {
+                if (playerHealth <= 95)
+                {
+                    playerHealth += 5f;
+                }
+
+                else if (playerHealth > 95 && playerHealth <= 100)
+                {
+                    playerHealth = 100;
+                }
+
                 hit.transform.GetComponent<DroneBehavior>().getHit();
             }
         }
