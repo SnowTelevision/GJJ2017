@@ -10,6 +10,7 @@
 		_Offset ("Offset", Float) = 0.0
 		_HeightMap ("Height Map", 2D) = "black" {}
 		_ClippingZ ("Clipping Z", Float) = 0.0
+		_LineWidth ("Line Width", Range(0, 0.5)) = 0.1
 	}
 	SubShader {
 		Tags { "RenderType"="Transparent" "Queue" = "Transparent" }
@@ -131,6 +132,7 @@
 		float _TrackWidth;
 		float _ClippingZ;
 		fixed4 _Color;
+		fixed _LineWidth;
 
 		void vert(inout appdata_full v, out Input o) {
 			float UVStep = 1.0 / _NumTrack;
@@ -152,7 +154,8 @@
 
 		void surf (Input IN, inout SurfaceOutputStandard o) {
 			// Albedo comes from a texture tinted by color
-			fixed4 c = tex2D (_MainTex, IN.uv_MainTex).a * _Color;
+			float2 coord = fmod(IN.uv_MainTex, 1);
+			fixed4 c = /*tex2D (_MainTex, IN.uv_MainTex).a*/ (1 - step(_LineWidth, coord.x) * step(_LineWidth, coord.y)) * _Color;
 			o.Albedo = c.rgb;
 			//o.Albedo = float3(1, 1, 1);// float3(IN.uv_MainTex.x, IN.uv_MainTex.y, 0);
 			// Metallic and smoothness come from slider variables

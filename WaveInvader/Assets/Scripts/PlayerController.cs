@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class PlayerController : MonoBehaviour
 {
     public bool isJump;
-    
+
     public float jumpHeight;
     public float timeToJumpApex;
     public float playerMaxHealth;
@@ -23,9 +23,19 @@ public class PlayerController : MonoBehaviour
     public Image damageEffect;
     public Image healthBar;
     public Image progressBar;
+    public Image crosshair;
 
-	// Use this for initialization
-	void Start ()
+    public LineRenderer laserBeam;
+    public Transform laserStart;
+    public Vector3 laserStartOffset;
+
+    public Text scoreText;
+
+    private bool laserGunCooling = false;
+    private int score = 0;
+
+    // Use this for initialization
+    void Start()
     {
         isJump = false;
 
@@ -38,8 +48,10 @@ public class PlayerController : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update ()
+    void Update()
     {
+        scoreText.text = string.Format("Score: {0,10}", score);
+
         velocity.x = 0;
         velocity.z = 0;
 
@@ -54,31 +66,46 @@ public class PlayerController : MonoBehaviour
             jumpp();
         }
 
-        if(Input.GetButtonDown("Fire1"))
+        RaycastHit hit;
+        GameObject target = null;
+
+        if (Physics.Raycast(thirdCam.transform.position, thirdCam.transform.forward, out hit, Mathf.Infinity) &&
+            hit.transform.tag == "Drone")
         {
-            shoott();
+            crosshair.color = Color.red;
+            target = hit.transform.gameObject;
+        }
+        else
+        {
+            crosshair.color = Color.green;
+            target = null;
+        }
+        
+        if (Input.GetButtonDown("Fire1"))
+        {
+            shoott(target);
         }
 
-        if(!isJump) //Control player's transform while not jumping
+        if (!isJump) //Control player's transform while not jumping
         {
             velocity.y = 0;
             transform.position = pos;
         }
 
-        else if(isJump)
+        else if (isJump)
         {
             velocity.y += gravity * Time.deltaTime;
         }
 
         transform.Translate(velocity * Time.deltaTime);
 
-        if(transform.position.y <= pos.y)
+        if (transform.position.y <= pos.y)
         {
             velocity.y = 0;
             isJump = false;
         }
 
-        if(playerHealth <= 0)
+        if (playerHealth <= 0)
         {
             Debug.LogError("You Lose!");
         }
@@ -93,7 +120,7 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if(playerHealth < playerMaxHealth)
+        if (playerHealth < playerMaxHealth)
         {
             playerHealth += healthRegenSpeed;
         }
@@ -104,36 +131,56 @@ public class PlayerController : MonoBehaviour
         velocity.y = jumpVelocity;
     }
 
-    public void shoott()
+    public void shoott(GameObject go)
     {
-        //print("shoot" + thirdCam.transform.position + " " + thirdCam.transform.forward);
+        if (laserGunCooling)
+            return;
+        //print("You hit: " + hit.transform.name);
+        Vector3 targetPosition;
 
-        RaycastHit hit;
-
-        if(Physics.Raycast(thirdCam.transform.position, thirdCam.transform.forward, out hit, Mathf.Infinity))
+        if (null != go && go.transform.tag == "Drone")
         {
-            //print("You hit: " + hit.transform.name);
-
-            if(hit.transform.tag == "Drone")
+            if (playerHealth <= 95)
             {
-                if (playerHealth <= 95)
-                {
-                    playerHealth += 5f;
-                }
-
-                else if (playerHealth > 95 && playerHealth <= 100)
-                {
-                    playerHealth = 100;
-                }
-
-                hit.transform.GetComponent<DroneBehavior>().getHit();
+                playerHealth += 5f;
             }
+
+            else if (playerHealth > 95 && playerHealth <= 100)
+            {
+                playerHealth = 100;
+            }
+
+            score++;
+            go.transform.GetComponent<DroneBehavior>().getHit();
+            targetPosition = go.transform.position;
         }
+        else
+        {
+            Camera cam = Camera.main;
+            targetPosition = cam.transform.position + cam.transform.forward * 100f;
+        }
+
+        laserBeam.SetPosition(0, laserStart.position + laserStartOffset);
+        laserBeam.SetPosition(1, targetPosition);
+        laserBeam.enabled = true;
+        laserGunCooling = true;
+        StartCoroutine(LaserGunTimer());
+    }
+
+    IEnumerator LaserGunTimer()
+    {
+        yield return new WaitForSeconds(0.02f);
+
+        laserBeam.enabled = false;
+
+        yield return new WaitForSeconds(0.02f);
+
+        laserGunCooling = false;
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "Drone")
+        if (other.tag == "Drone")
         {
             //print("Being Hit");
 
