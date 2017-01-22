@@ -16,7 +16,7 @@ public class GeneratePortal : MonoBehaviour
     {
         if (autoSpawn)
         {
-            StartCoroutine(autoSpawnPortal());
+            //StartCoroutine(autoSpawnPortal());
         }
 	}
 	
@@ -34,6 +34,8 @@ public class GeneratePortal : MonoBehaviour
             spawnPosition.x + Random.Range(-(randomRangeX / 2f), randomRangeX / 2f ), 
             spawnPosition.y + Random.Range(-(randomRangeY / 2f), randomRangeY / 2f ) + heightDisplacement, 
             spawnPosition.z), spawnRotation);
+
+        portal.GetComponent<GenerateEnemy>().WaitTime = portalDuration;
 
         StartCoroutine(portalStart(portal, portalDuration));
 

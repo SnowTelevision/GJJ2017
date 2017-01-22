@@ -61,7 +61,7 @@ public class GenerateEnemy : MonoBehaviour
     IEnumerator enemyStart(float waitTime, Vector3 startPosition, Quaternion startRotation)
     {
         //print("spawn drone");
-        yield return new WaitForSeconds(waitTime - 0.1f);
+        yield return new WaitForSeconds(waitTime - 0.2f);
 
         //print("spawn drone now");
         GameObject drone = Instantiate(dronePrefab, startPosition, startRotation);
