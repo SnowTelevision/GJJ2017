@@ -1,57 +1,38 @@
 fileFormatVersion: 2
-guid: 273a94339ba2ae742a2ace0ca1dfce69
-timeCreated: 1485060543
+guid: 0659935fd18d9724cb31edef5917fea5
+timeCreated: 1485104181
 licenseType: Pro
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
-    100000: Camera
-    100002: Circle
-    100004: Circle.001
-    100006: Circle.002
-    100008: Cylinder
-    100010: Cylinder.001
-    100012: Cylinder.002
-    100014: Lamp
-    100016: //RootNode
-    400000: Camera
-    400002: Circle
-    400004: Circle.001
-    400006: Circle.002
-    400008: Cylinder
-    400010: Cylinder.001
-    400012: Cylinder.002
-    400014: Lamp
-    400016: //RootNode
-    2300000: Circle
-    2300002: Circle.001
-    2300004: Circle.002
-    2300006: Cylinder
-    2300008: Cylinder.001
-    2300010: Cylinder.002
-    3300000: Circle
-    3300002: Circle.001
-    3300004: Circle.002
-    3300006: Cylinder
-    3300008: Cylinder.001
-    3300010: Cylinder.002
-    4300000: Circle.002
-    4300002: Cylinder.001
-    4300004: Circle.001
-    4300006: Cylinder
-    4300008: Circle
-    4300010: Cylinder.002
-    7400000: Circle.002|Circle.001Action
-    7400002: Circle.002|Circle.002Action
-    7400004: Circle.002|CircleAction
-    7400006: Circle.001|Circle.001Action
-    7400008: Circle.001|Circle.002Action
-    7400010: Circle.001|CircleAction
-    7400012: Circle|Circle.001Action
-    7400014: Circle|Circle.002Action
-    7400016: Circle|CircleAction
+    100000: Armature
+    100002: Circle Pivot
+    100004: Cylinder
+    100006: Diamond L.
+    100008: Diamond L._end
+    100010: Diamond M.
+    100012: Diamond M._end
+    100014: Diamond R.
+    100016: Diamond R._end
+    100018: //RootNode
+    100020: Tower
+    100022: Tower_end
+    400000: Armature
+    400002: Circle Pivot
+    400004: Cylinder
+    400006: Diamond L.
+    400008: Diamond L._end
+    400010: Diamond M.
+    400012: Diamond M._end
+    400014: Diamond R.
+    400016: Diamond R._end
+    400018: //RootNode
+    400020: Tower
+    400022: Tower_end
+    4300000: Cylinder
+    7400000: Armature|TOWERPUMP
     9500000: //RootNode
-    11100000: //RootNode
+    13700000: Cylinder
   materials:
     importMaterials: 1
     materialName: 0
@@ -66,62 +47,16 @@ ModelImporter:
     animationImportWarnings: 
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
-    animationCompression: 3
+    animationCompression: 1
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
-    animationWrapMode: 2
+    animationWrapMode: 0
     extraExposedTransformPaths: []
     clipAnimations:
     - serializedVersion: 16
-      name: Circle.002|Circle.001Action
-      takeName: Circle.002|Circle.001Action
-      firstFrame: 0
-      lastFrame: 97
-      wrapMode: 0
-      orientationOffsetY: 0
-      level: 0
-      cycleOffset: 0
-      loop: 0
-      hasAdditiveReferencePose: 0
-      loopTime: 0
-      loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
-      keepOriginalOrientation: 0
-      keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
-      heightFromFeet: 0
-      mirror: 0
-      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
-      events: []
-      transformMask:
-      - path: 
-        weight: 1
-      - path: Camera
-        weight: 1
-      - path: Circle
-        weight: 1
-      - path: Circle/Cylinder.002
-        weight: 1
-      - path: Circle.001
-        weight: 1
-      - path: Circle.001/Cylinder
-        weight: 1
-      - path: Circle.002
-        weight: 1
-      - path: Circle.002/Cylinder.001
-        weight: 1
-      - path: Lamp
-        weight: 1
-      maskType: 3
-      maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
-    - serializedVersion: 16
-      name: Circle.002|Circle.002Action
-      takeName: Circle.002|Circle.002Action
+      name: Armature|TOWERPUMP
+      takeName: Armature|TOWERPUMP
       firstFrame: 0
       lastFrame: 119
       wrapMode: 0
@@ -146,343 +81,27 @@ ModelImporter:
       transformMask:
       - path: 
         weight: 1
-      - path: Camera
+      - path: Armature
         weight: 1
-      - path: Circle
+      - path: Armature/Circle Pivot
         weight: 1
-      - path: Circle/Cylinder.002
+      - path: Armature/Circle Pivot/Diamond L.
         weight: 1
-      - path: Circle.001
+      - path: Armature/Circle Pivot/Diamond L./Diamond L._end
         weight: 1
-      - path: Circle.001/Cylinder
+      - path: Armature/Circle Pivot/Diamond R.
         weight: 1
-      - path: Circle.002
+      - path: Armature/Circle Pivot/Diamond R./Diamond R._end
         weight: 1
-      - path: Circle.002/Cylinder.001
+      - path: Armature/Diamond M.
         weight: 1
-      - path: Lamp
+      - path: Armature/Diamond M./Diamond M._end
         weight: 1
-      maskType: 3
-      maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
-    - serializedVersion: 16
-      name: Circle.002|CircleAction
-      takeName: Circle.002|CircleAction
-      firstFrame: 0
-      lastFrame: 119
-      wrapMode: 0
-      orientationOffsetY: 0
-      level: 0
-      cycleOffset: 0
-      loop: 0
-      hasAdditiveReferencePose: 0
-      loopTime: 0
-      loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
-      keepOriginalOrientation: 0
-      keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
-      heightFromFeet: 0
-      mirror: 0
-      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
-      events: []
-      transformMask:
-      - path: 
+      - path: Armature/Tower
         weight: 1
-      - path: Camera
+      - path: Armature/Tower/Tower_end
         weight: 1
-      - path: Circle
-        weight: 1
-      - path: Circle/Cylinder.002
-        weight: 1
-      - path: Circle.001
-        weight: 1
-      - path: Circle.001/Cylinder
-        weight: 1
-      - path: Circle.002
-        weight: 1
-      - path: Circle.002/Cylinder.001
-        weight: 1
-      - path: Lamp
-        weight: 1
-      maskType: 3
-      maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
-    - serializedVersion: 16
-      name: Circle.001|Circle.001Action
-      takeName: Circle.001|Circle.001Action
-      firstFrame: 0
-      lastFrame: 97
-      wrapMode: 0
-      orientationOffsetY: 0
-      level: 0
-      cycleOffset: 0
-      loop: 0
-      hasAdditiveReferencePose: 0
-      loopTime: 1
-      loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
-      keepOriginalOrientation: 0
-      keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
-      heightFromFeet: 0
-      mirror: 0
-      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
-      events: []
-      transformMask:
-      - path: 
-        weight: 1
-      - path: Camera
-        weight: 1
-      - path: Circle
-        weight: 1
-      - path: Circle/Cylinder.002
-        weight: 1
-      - path: Circle.001
-        weight: 1
-      - path: Circle.001/Cylinder
-        weight: 1
-      - path: Circle.002
-        weight: 1
-      - path: Circle.002/Cylinder.001
-        weight: 1
-      - path: Lamp
-        weight: 1
-      maskType: 3
-      maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
-    - serializedVersion: 16
-      name: Circle.001|Circle.002Action
-      takeName: Circle.001|Circle.002Action
-      firstFrame: 0
-      lastFrame: 119
-      wrapMode: 0
-      orientationOffsetY: 0
-      level: 0
-      cycleOffset: 0
-      loop: 0
-      hasAdditiveReferencePose: 0
-      loopTime: 0
-      loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
-      keepOriginalOrientation: 0
-      keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
-      heightFromFeet: 0
-      mirror: 0
-      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
-      events: []
-      transformMask:
-      - path: 
-        weight: 1
-      - path: Camera
-        weight: 1
-      - path: Circle
-        weight: 1
-      - path: Circle/Cylinder.002
-        weight: 1
-      - path: Circle.001
-        weight: 1
-      - path: Circle.001/Cylinder
-        weight: 1
-      - path: Circle.002
-        weight: 1
-      - path: Circle.002/Cylinder.001
-        weight: 1
-      - path: Lamp
-        weight: 1
-      maskType: 3
-      maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
-    - serializedVersion: 16
-      name: Circle.001|CircleAction
-      takeName: Circle.001|CircleAction
-      firstFrame: 0
-      lastFrame: 119
-      wrapMode: 0
-      orientationOffsetY: 0
-      level: 0
-      cycleOffset: 0
-      loop: 0
-      hasAdditiveReferencePose: 0
-      loopTime: 0
-      loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
-      keepOriginalOrientation: 0
-      keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
-      heightFromFeet: 0
-      mirror: 0
-      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
-      events: []
-      transformMask:
-      - path: 
-        weight: 1
-      - path: Camera
-        weight: 1
-      - path: Circle
-        weight: 1
-      - path: Circle/Cylinder.002
-        weight: 1
-      - path: Circle.001
-        weight: 1
-      - path: Circle.001/Cylinder
-        weight: 1
-      - path: Circle.002
-        weight: 1
-      - path: Circle.002/Cylinder.001
-        weight: 1
-      - path: Lamp
-        weight: 1
-      maskType: 3
-      maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
-    - serializedVersion: 16
-      name: Circle|Circle.001Action
-      takeName: Circle|Circle.001Action
-      firstFrame: 0
-      lastFrame: 97
-      wrapMode: 0
-      orientationOffsetY: 0
-      level: 0
-      cycleOffset: 0
-      loop: 0
-      hasAdditiveReferencePose: 0
-      loopTime: 0
-      loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
-      keepOriginalOrientation: 0
-      keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
-      heightFromFeet: 0
-      mirror: 0
-      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
-      events: []
-      transformMask:
-      - path: 
-        weight: 1
-      - path: Camera
-        weight: 1
-      - path: Circle
-        weight: 1
-      - path: Circle/Cylinder.002
-        weight: 1
-      - path: Circle.001
-        weight: 1
-      - path: Circle.001/Cylinder
-        weight: 1
-      - path: Circle.002
-        weight: 1
-      - path: Circle.002/Cylinder.001
-        weight: 1
-      - path: Lamp
-        weight: 1
-      maskType: 3
-      maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
-    - serializedVersion: 16
-      name: Circle|Circle.002Action
-      takeName: Circle|Circle.002Action
-      firstFrame: 0
-      lastFrame: 119
-      wrapMode: 0
-      orientationOffsetY: 0
-      level: 0
-      cycleOffset: 0
-      loop: 0
-      hasAdditiveReferencePose: 0
-      loopTime: 0
-      loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
-      keepOriginalOrientation: 0
-      keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
-      heightFromFeet: 0
-      mirror: 0
-      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
-      events: []
-      transformMask:
-      - path: 
-        weight: 1
-      - path: Camera
-        weight: 1
-      - path: Circle
-        weight: 1
-      - path: Circle/Cylinder.002
-        weight: 1
-      - path: Circle.001
-        weight: 1
-      - path: Circle.001/Cylinder
-        weight: 1
-      - path: Circle.002
-        weight: 1
-      - path: Circle.002/Cylinder.001
-        weight: 1
-      - path: Lamp
-        weight: 1
-      maskType: 3
-      maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
-    - serializedVersion: 16
-      name: Circle|CircleAction
-      takeName: Circle|CircleAction
-      firstFrame: 0
-      lastFrame: 119
-      wrapMode: 0
-      orientationOffsetY: 0
-      level: 0
-      cycleOffset: 0
-      loop: 0
-      hasAdditiveReferencePose: 0
-      loopTime: 0
-      loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
-      keepOriginalOrientation: 0
-      keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
-      heightFromFeet: 0
-      mirror: 0
-      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
-      events: []
-      transformMask:
-      - path: 
-        weight: 1
-      - path: Camera
-        weight: 1
-      - path: Circle
-        weight: 1
-      - path: Circle/Cylinder.002
-        weight: 1
-      - path: Circle.001
-        weight: 1
-      - path: Circle.001/Cylinder
-        weight: 1
-      - path: Circle.002
-        weight: 1
-      - path: Circle.002/Cylinder.001
-        weight: 1
-      - path: Lamp
+      - path: Cylinder
         weight: 1
       maskType: 3
       maskSource: {instanceID: 0}
@@ -525,7 +144,7 @@ ModelImporter:
     rootMotionBoneName: 
     rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
     hasTranslationDoF: 0
-    hasExtraRoot: 1
+    hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   animationType: 2
