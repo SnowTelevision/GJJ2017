@@ -112,7 +112,7 @@ public class WaveGenerator : MonoBehaviour
 
         for (int i = 0; i < 128; i++)
         {
-            float height = Mathf.PerlinNoise(i / 128.0f * 10.0f, 0);
+            float height = Mathf.Sin(i) * 0.2f;
             tex.SetPixel(i, 0, new Color(height, 0, 0, 0));
             heights[i] = height;
         }
