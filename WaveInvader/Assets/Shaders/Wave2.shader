@@ -9,6 +9,7 @@
 		_TrackWidth ("Track Width", Float) = 0.0
 		_Offset ("Offset", Float) = 0.0
 		_HeightMap ("Height Map", 2D) = "black" {}
+		_ClippingZ ("Clipping Z", Float) = 0.0
 	}
 	SubShader {
 		Tags { "RenderType"="Transparent" "Queue" = "Transparent" }
@@ -119,6 +120,7 @@
 
 		struct Input {
 			float2 uv_MainTex;
+			float4 positionVS;
 		};
 
 		half _Glossiness;
@@ -127,9 +129,10 @@
 		float _Offset;
 		int _NumTrack;
 		float _TrackWidth;
+		float _ClippingZ;
 		fixed4 _Color;
 
-		void vert(inout appdata_full v) {
+		void vert(inout appdata_full v, out Input o) {
 			float UVStep = 1.0 / _NumTrack;
 			float4 h = tex2Dlod(_HeightMap, float4(v.texcoord.x * 0.5 - _Offset, 0, 0, 0));
 			float4 h_0 = tex2Dlod(_HeightMap, float4((v.texcoord.x - UVStep) * 0.5 - _Offset, 0, 0, 0));
@@ -142,6 +145,9 @@
 			float b = a.y / (a.x * a.x + a.z * a.z);
 			float3 normal = normalize(float3(a.x * b, 1, a.z * b));
 			v.normal = normal;
+
+			UNITY_INITIALIZE_OUTPUT(Input, o);
+			o.positionVS = mul(UNITY_MATRIX_MV, v.vertex);
 		}
 
 		void surf (Input IN, inout SurfaceOutputStandard o) {
@@ -152,7 +158,7 @@
 			// Metallic and smoothness come from slider variables
 			o.Metallic = _Metallic;
 			o.Smoothness = _Glossiness;
-			o.Alpha = c.a;
+			o.Alpha = c.a * smoothstep(0, _ClippingZ, -IN.positionVS.z);
 		}
 		ENDCG
 	}

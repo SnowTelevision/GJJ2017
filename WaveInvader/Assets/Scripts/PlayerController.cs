@@ -46,7 +46,7 @@ public class PlayerController : MonoBehaviour
         //Calculate wave height
         Vector3 pos = transform.position;
         float height = Wave.SampleHeight(pos);
-        pos.y = height + Wave.transform.position.y;
+        pos.y = height + Wave.transform.position.y + 1;
 
         if (Input.GetButtonDown("Jump") && !isJump)
         {
