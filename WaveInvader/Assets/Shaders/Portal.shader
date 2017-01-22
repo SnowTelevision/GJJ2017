@@ -4,6 +4,7 @@
 	{
 		_Color ("Color", Color) = (1, 1, 1, 1)
 		_MainTex ("Texture", 2D) = "white" {}
+		_Param ("Params", Vector) = (1, 1, 0, 0)
 	}
 	SubShader
 	{
@@ -38,6 +39,7 @@
 			sampler2D _MainTex;
 			float4 _MainTex_ST;
 
+			float4 _Param;
 			fixed4 _Color;
 			
 			v2f vert (appdata v)
@@ -53,7 +55,9 @@
 			{
 				float2 vec = i.uv.xy - float2(0.5, 0.5);
 				float r = length(vec);
-				float angle = normalize(vec).x
+				float angle = fmod(acos(normalize(vec).y) * _Param.x / 3.1415926535, 1);
+				if (vec.x <= 0) angle = 1 - angle;
+				angle = fmod(_Param.z + angle + r * _Param.y, 1);
 				float t = 1 - step(0.5, r);
 				t = t * angle;
 				// sample the texture
