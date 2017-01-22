@@ -24,6 +24,7 @@ public class PlayerController : MonoBehaviour
     public Image healthBar;
     public Image progressBar;
     public Image crosshair;
+    public AudioSource soundTrack;
 
     public LineRenderer laserBeam;
     public Transform laserStart;
@@ -111,6 +112,7 @@ public class PlayerController : MonoBehaviour
         }
 
         healthBar.fillAmount = playerHealth / playerMaxHealth;
+        progressBar.fillAmount = 1 - (soundTrack.time / soundTrack.clip.length);
 
         //if(velocity.y != 0)
         //{
